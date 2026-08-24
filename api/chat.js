@@ -1,7 +1,7 @@
 // Primary + complex models, each with fallbacks in case OpenRouter
 // deprecates/renames a free slug (this is what broke last time).
 const PRIMARY_MODELS = [
-    'google/gemini-2.0-flash-exp:free',
+    'nvidia/nemotron-3.5-lightning:free',
     'meta-llama/llama-3.3-8b-instruct:free',
     'qwen/qwen3-8b:free'
 ];
