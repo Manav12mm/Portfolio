@@ -1,10 +1,4 @@
-// If one free model is down/renamed/rate-limited, try the next.
-// Keep this list short — 2-3 solid, currently-active free models.
-const MODELS = [
-    'meta-llama/llama-3.3-8b-instruct:free',
-    'google/gemini-2.0-flash-exp:free',
-    'mistralai/mistral-small-3.2-24b-instruct:free'
-];
+const MODEL = 'openai/gpt-oss-20b'; // Groq's fastest current model (900+ tokens/sec). Llama 3.1 8B / 3.3 70B are deprecated on Groq as of June 2026.
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -12,7 +6,7 @@ export default async function handler(req, res) {
     }
 
     const { messages } = req.body || {};
-    const apiKey = process.env.OPENROUTER_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
 
     if (!apiKey) {
         return res.status(500).json({ error: 'Server configuration error: Missing API Key' });
@@ -21,53 +15,33 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Messages must be a non-empty array' });
     }
 
-    let lastError = null;
+    try {
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model: MODEL,
+                messages,
+                temperature: 0.7,
+                max_tokens: 300
+            })
+        });
 
-    for (const model of MODELS) {
-        try {
-            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json',
-                    'HTTP-Referer': 'https://www.redoyanulhaque.me',
-                    'X-Title': 'Redoyanul Haque Portfolio'
-                },
-                body: JSON.stringify({
-                    model,
-                    messages,
-                    temperature: 0.7,
-                    max_tokens: 300
-                })
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.error('Groq API Error:', data);
+            return res.status(response.status).json({
+                error: data?.error?.message || 'Failed to fetch from Groq'
             });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                console.error(`OpenRouter error with model "${model}":`, data);
-                lastError = data?.error?.message || `Model ${model} failed`;
-                continue; // try next model
-            }
-
-            if (!data?.choices?.[0]?.message?.content) {
-                console.error(`Empty/invalid response from model "${model}":`, data);
-                lastError = `Model ${model} returned no content`;
-                continue; // try next model
-            }
-
-            // Success
-            return res.status(200).json(data);
-
-        } catch (error) {
-            console.error(`Network/fetch error with model "${model}":`, error);
-            lastError = error.message;
-            continue; // try next model
         }
-    }
 
-    // Every model in the list failed
-    return res.status(502).json({
-        error: 'All chat models are currently unavailable. Please try again shortly.',
-        details: lastError
-    });
+        return res.status(200).json(data);
+    } catch (error) {
+        console.error('Groq API Error:', error);
+        return res.status(500).json({ error: 'Internal Server Error', details: error.message });
+    }
 }
