@@ -1,8 +1,8 @@
 // Primary + complex models, each with fallbacks in case OpenRouter
 // deprecates/renames a free slug (this is what broke last time).
 const PRIMARY_MODELS = [
-    'meta-llama/llama-3.3-8b-instruct:free',
     'google/gemini-2.0-flash-exp:free',
+    'meta-llama/llama-3.3-8b-instruct:free',
     'qwen/qwen3-8b:free'
 ];
 
@@ -49,7 +49,15 @@ async function callOpenRouter({ apiKey, model, messages, temperature, max_tokens
             'HTTP-Referer': 'https://www.redoyanulhaque.me',
             'X-Title': 'Redoyanul Haque Portfolio'
         },
-        body: JSON.stringify({ messages, model, temperature, max_tokens })
+        body: JSON.stringify({
+            messages,
+            model,
+            temperature,
+            max_tokens,
+            // Ask reasoning-capable models to keep thinking out of the visible content.
+            // Ignored by models that don't support it — harmless either way.
+            reasoning: { exclude: true }
+        })
     });
 
     const data = await response.json().catch(() => ({}));
@@ -68,6 +76,38 @@ async function callOpenRouter({ apiKey, model, messages, temperature, max_tokens
         throw err;
     }
 
+    return data;
+}
+
+// Reasoning-tuned models (Nemotron, DeepSeek-R1, QwQ, etc.) sometimes leak their
+// chain-of-thought into message.content instead of putting it in a separate
+// "reasoning" field. This strips common thinking-block patterns as a safety net.
+function stripReasoningLeak(text) {
+    if (!text) return text;
+    let cleaned = text;
+
+    // <think>...</think> or similar tags
+    cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/gi, '');
+
+    // "Here's a thinking process: 1. ... 2. ..." style preambles followed by the real answer.
+    // If the text starts with an obvious meta-commentary preamble, cut everything up to
+    // the last numbered step / "final answer" style marker if present.
+    const preambleMatch = cleaned.match(/^(here'?s (my|a) (thinking process|reasoning|thought process)[:.][\s\S]*?)(?:\n\n|final answer[:.]?\s*)/i);
+    if (preambleMatch) {
+        cleaned = cleaned.slice(preambleMatch[0].length);
+    }
+
+    return cleaned.trim();
+}
+
+function sanitizeResponse(data) {
+    if (data?.choices) {
+        for (const choice of data.choices) {
+            if (choice?.message?.content) {
+                choice.message.content = stripReasoningLeak(choice.message.content);
+            }
+        }
+    }
     return data;
 }
 
@@ -107,13 +147,14 @@ export default async function handler(req, res) {
 
     for (const model of candidateModels) {
         try {
-            const data = await callOpenRouter({
+            const rawData = await callOpenRouter({
                 apiKey,
                 model,
                 messages: outboundMessages,
                 temperature,
                 max_tokens
             });
+            const data = sanitizeResponse(rawData);
             // Let the client know which model actually answered (handy for debugging).
             return res.status(200).json({ ...data, _modelUsed: model });
         } catch (error) {
