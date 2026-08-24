@@ -1,8 +1,8 @@
 // Primary + complex models, each with fallbacks in case OpenRouter
 // deprecates/renames a free slug (this is what broke last time).
 const PRIMARY_MODELS = [
-    'nvidia/nemotron-3.5-lightning:free',
     'meta-llama/llama-3.3-8b-instruct:free',
+    'google/gemini-2.0-flash-exp:free',
     'qwen/qwen3-8b:free'
 ];
 
@@ -92,7 +92,7 @@ export default async function handler(req, res) {
 
     const shortReplyMode = isSmallTalk(lastUserMessage) || (!useComplexModel && lastUserMessage.length <= 80);
     const styleInstruction = shortReplyMode
-        ? 'Style override: Keep reply to 1-2 short sentences (max 35 words). Friendly and professional. Do not dump bio unless explicitly asked.'
+        ? 'Style override: Keep reply to 2-3 short sentences generally in case of normal intro query. Friendly and professional. Do not dump biodata lol unless explicitly asked.'
         : 'Style override: Keep it concise, practical, and friendly. Expand only when user asks for detail.';
 
     const outboundMessages = [
