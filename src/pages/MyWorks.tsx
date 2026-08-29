@@ -12,11 +12,22 @@ const MyWorks = () => {
         <h1>
           All <span>Works</span>
         </h1>
-        <p>A collection of all my projects and creations</p>
+        <p>A collection of my featured projects</p>
+        <div style={{ marginTop: "20px" }}>
+          <a
+            href="https://github.com/Manav12mm"
+            target="_self"
+            className="back-button"
+            style={{ background: "var(--accentColor)", color: "#000", fontWeight: 600, border: "none" }}
+            data-cursor="disable"
+          >
+            Let's Go on GitHub →
+          </a>
+        </div>
       </div>
 
       <div className="myworks-grid">
-        {config.projects.map((project, index) => {
+        {config.projects.slice(0, 4).map((project, index) => {
           const isInternalLink = Boolean(project.link?.startsWith("/"));
           const cardContent = (
             <>
@@ -52,7 +63,7 @@ const MyWorks = () => {
               key={project.id}
               data-cursor="disable"
               href={project.link || undefined}
-              target={project.link ? "_blank" : undefined}
+              target={project.link ? "_self" : undefined}
               rel={project.link ? "noopener noreferrer" : undefined}
             >
               {cardContent}

@@ -1,177 +1,138 @@
 export const config = {
     developer: {
-        name: "Redoyanul",
-        fullName: "Redoyanul Haque",
+        name: "Manav",
+        fullName: "Manav Mishra",
         title: "AI & Full-Stack Developer",
         description: "AI & Full-Stack Developer building intelligent systems and modern web applications. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
     },
     social: {
-        github: "red1-for-hek",
-        email: "redoyanul1234@gmail.com",
-        location: "Bangladesh"
+        github: "Manav12mm",
+        email: "mishramanavv@gmail.com",
+        location: "India"
     },
     about: {
         title: "About Me",
-        description: "I am a self-taught AI & Full-Stack Developer from Bangladesh. I build intelligent systems, chatbots, and modern web applications. My expertise includes Machine Learning, Deep Learning, NLP, and Full-Stack Web Development with React, Node.js, and Python. Currently building next-gen AI Agents and JARVIS-like Personal Assistants. I have a competitive programming mindset and a deep passion for automation. Code is poetry, AI is the canvas."
+        description: [
+            "I’m a 3rd-year B.Tech student with a strong interest in AI, Machine Learning, Full-Stack Development, and Competitive Programming. I enjoy learning by building things, solving challenging problems, and turning ideas into projects that can solve real-world problems.",
+            "I’ve worked with Machine Learning, Deep Learning, NLP, and Full-Stack Development, using technologies like Python, React, and Node.js. I’m particularly interested in building AI-powered applications, intelligent systems, and chatbots, while also sharpening my problem-solving skills through competitive programming.",
+            "Currently, I’m focused on building more ML and AI projects, exploring new technologies, and continuously improving my development and problem-solving skills."
+        ]
     },
     experiences: [
         {
-            position: "Learning Something New",
-            company: "Self-Development",
-            period: "2025 - Present",
-            location: "Bangladesh",
-            description: "Continuously exploring emerging technologies, researching advanced AI systems, and pushing the boundaries of what's possible in tech.",
+            position: "ML Engineer",
+            company: "AI Research & Projects",
+            period: "2026",
+            location: "India",
+            description: "Diving deep into Machine Learning, Transformers, Retrieval-Augmented Generation (RAG), and advanced ML concepts to build intelligent AI systems.",
             responsibilities: [
-                "Researching cutting-edge AI and ML technologies",
-                "Experimenting with new frameworks and tools",
-                "Contributing to open-source projects",
-                "Building innovative personal projects"
+                "Exploring Transformer architectures, fine-tuning LLMs, and attention mechanisms",
+                "Building RAG (Retrieval-Augmented Generation) systems and vector database workflows",
+                "Mastering core Machine Learning algorithms, deep learning, and model optimization",
+                "Developing AI-driven applications and intelligent conversational agents"
             ],
-            technologies: ["Research", "Innovation", "Open Source", "New Tech"]
-        },
-        {
-            position: "AI Engineer",
-            company: "Freelance & Projects",
-            period: "2025",
-            location: "Bangladesh",
-            description: "Developing intelligent AI systems, chatbots, and machine learning solutions. Building next-gen conversational AI agents and JARVIS-like personal assistants.",
-            responsibilities: [
-                "Building AI-powered chatbots and conversational agents",
-                "Developing machine learning models with TensorFlow and PyTorch",
-                "Working with LLMs and transformer architectures",
-                "Creating autonomous AI systems and automation tools"
-            ],
-            technologies: ["Python", "TensorFlow", "PyTorch", "LLMs", "NLP", "AI Agents"]
+            technologies: ["Transformers", "RAG", "PyTorch", "LLMs", "Machine Learning", "Vector DBs"]
         },
         {
             position: "Full-Stack Developer",
             company: "Freelance & Projects",
-            period: "2024",
-            location: "Bangladesh",
-            description: "Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for various clients and projects.",
+            period: "2025",
+            location: "India",
+            description: "Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for clients and projects.",
             responsibilities: [
-                "Developing full-stack web applications using React and Node.js",
-                "Building RESTful APIs and integrating databases",
+                "Developing full-stack web applications using React, Node.js, and Python",
+                "Building RESTful APIs and integrating database solutions",
                 "Creating responsive and interactive user interfaces",
                 "Deploying and maintaining web applications"
             ],
-            technologies: ["React", "Node.js", "MongoDB", "Express", "Next.js", "TypeScript"]
+            technologies: ["React", "Node.js", "Python", "MongoDB", "Express", "TypeScript"]
         },
         {
-            position: "Python Developer",
-            company: "Self-Taught & Projects",
-            period: "2023",
-            location: "Bangladesh",
+            position: "Python Developer & Automation",
+            company: "Projects & Learning",
+            period: "2024",
+            location: "India",
             description: "Dove deep into Python programming, building automation scripts, bots, and mastering the fundamentals of software development and problem-solving.",
             responsibilities: [
-                "Learning Python programming and core concepts",
-                "Building automation scripts and Discord bots",
+                "Building Python scripts, automation tools, and bots",
+                "Mastering fundamentals of software development and problem-solving",
                 "Exploring data structures and algorithms",
                 "Participating in competitive programming"
             ],
-            technologies: ["Python", "Automation", "Scripting", "Discord.py", "Problem Solving"]
-        },
-        {
-            position: "Graphic Designer",
-            company: "Freelance",
-            period: "2022",
-            location: "Bangladesh",
-            description: "Started my creative journey as a graphic designer, creating logos, banners, and visual content. This sparked my passion for technology and digital creation.",
-            responsibilities: [
-                "Designing logos and brand identity materials",
-                "Creating social media graphics and banners",
-                "Working with clients on creative projects",
-                "Learning design principles and visual aesthetics"
-            ],
-            technologies: ["Photoshop", "Illustrator", "Canva", "Figma", "Visual Design"]
-        },
-        {
-            position: "Microsoft Office",
-            company: "Begin Learning",
-            period: "2021",
-            location: "Bangladesh",
-            description: "Started my journey into the digital world by learning Microsoft Office tools. This foundational step introduced me to computers and sparked my curiosity for technology.",
-            responsibilities: [
-                "Learning Microsoft Word, Excel, and PowerPoint",
-                "Creating documents and presentations",
-                "Understanding basic computer operations",
-                "Building foundational digital skills"
-            ],
-            technologies: ["MS Word", "MS Excel", "MS PowerPoint", "Computer Basics"]
+            technologies: ["Python", "Automation", "Scripting", "Data Structures", "Problem Solving"]
         }
     ],
     projects: [
         {
             id: 1,
-            title: "Drishti",
-            category: "AI / LLM",
-            technologies: "Python, PyTorch, Transformers, FastAPI, React, MongoDB",
-            image: "/images/Drishti.png",
-            description: "Bangladesh's first intelligent advanced AI chatbot powered by a custom Large Language Model. Features natural language understanding, contextual conversations, and multilingual support including Bengali.",
-            link: "https://huggingface.co/red1-for-hek/drishti-ilm-x1"
+            title: "CloudKit",
+            category: "AI / Data Analytics Platform",
+            technologies: "FastAPI • Python • React • Tailwind CSS • NL-to-SQL Agent • Self-Correcting Execution • Dataset Sentiment Engine",
+            image: "/images/CloudKit.png",
+            description: "CloudKit is an enterprise AI-powered SQL data analysis platform that converts natural language questions into accurate SQL queries, executes them against relational databases (SQLite / MySQL), self-corrects invalid queries, and provides dynamic data visualizations with dataset sentiment analysis.",
+            link: "https://cloud-kit.vercel.app/"
         },
         {
             id: 2,
-            title: "VoteChain",
-            category: "Blockchain",
-            technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js",
-            image: "/images/VoteChain.png",
-            description: "A decentralized election system built on blockchain technology ensuring transparent, tamper-proof, and verifiable voting. Features smart contracts for vote integrity and real-time result tracking.",
-            link: "https://github.com/red1-for-hek/smart-election-by-blockchain"
+            title: "Reconify",
+            category: "FinTech / AI Reconciliation",
+            technologies: "Next.js 16 • React 19 • Tailwind CSS • Gemini 2.0 AI • Razorpay SDK • 3-Way Automated Audit • MDR Overcharge Detection Engine",
+            image: "/images/Reconify.png",
+            description: "Reconify is an enterprise-grade, AI-driven payment audit & bank reconciliation dashboard designed for merchants using Razorpay. It automates 3-way matching between Razorpay Gateway Settlements, Bank Deposits, and Internal Orders to detect unannounced MDR fee overcharges, TDS holdbacks, netbanking surcharges, and missing settlements.",
+            link: "https://razorpay112.vercel.app/"
         },
         {
             id: 4,
-            title: "Flood Spaces 2.0",
-            category: "AI / ML",
-            technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS",
-            image: "/images/FloodSpaces.png",
-            description: "Predicts flood risks across Bangladesh up to one month in advance and sends early alerts to help people prepare.",
-            link: "https://github.com/red1-for-hek/Flood-Spaces-2.0"
+            title: "ElevateHR",
+            category: "AI / HR Talent Analytics",
+            technologies: "React 19 • Python FastAPI • Generative AI • Tailwind CSS • Skill Matrix Vectorization • Bias-Free Promotion Engine",
+            image: "/images/ElevateHR.png",
+            description: "ElevateHR is a high-energy performance analytics engine designed for team leaders. It transforms static employee records into real-time skill mapping vectors and bias-free promotion roadmaps calculated dynamically by generative AI.",
+            link: "https://aiese-elevatehr-2.onrender.com/"
         },
         {
             id: 5,
-            title: "Phoenix 3.0",
-            category: "AI Assistant",
-            technologies: "Python, Speech Recognition, PyAutoGUI, OpenAI API, Tkinter",
-            image: "/images/Phoenix3.0.png",
-            description: "A JARVIS-inspired personal AI desktop assistant. Controls system functions, manages tasks, answers queries, automates workflows, and provides voice-activated computing experience.",
-            link: "https://github.com/red1-for-hek/phoenix3.0"
+            title: "NetInsight",
+            category: "AI / Business Operating System",
+            technologies: "React • TypeScript • Vite • Tailwind CSS • 24/7 Autonomous AI Agent • Live Revenue Analytics • Multi-Currency Checkout",
+            image: "/images/NetInsight.png",
+            description: "NetInsight is an AI-powered operating system for modern businesses. It automates 80% of customer support, instant ordering, and sales follow-ups 24/7. Features include branded storefronts, live revenue analytics, and global multi-currency checkout built using React, TypeScript, Vite, and TailwindCSS.",
+            link: "https://netinsight-ruddy.vercel.app/"
         },
         {
             id: 6,
             title: "RedxChess",
-            category: "AI / Game Engine",
-            technologies: "Python, C++, Neural Networks, Bitboards, UCI Protocol",
+            category: "AI / High-Performance Game Engine",
+            technologies: "C++ Core • Python API • NNUE Neural Net • Bitboard Matrix Acceleration • Alpha-Beta Pruning • 3640 ELO Engine",
             image: "/images/RedxChess.png",
-            description: "A high-performance chess engine rated 3640 ELO. Features advanced search algorithms, neural network evaluation, and optimized bitboard representation for lightning-fast move generation.",
+            description: "A high-performance chess engine rated 3640 ELO. Built with a hyper-optimized C++ core, neural network evaluations (NNUE), and bitboard matrix operations for lightning-fast move generation and search depth analysis.",
             link: "/play"
         },
         {
             id: 7,
             title: "Prodesk",
-            category: "E-commerce",
-            technologies: "React, Node.js, MongoDB, Express, Stripe",
+            category: "Full-Stack / E-Commerce Marketplace",
+            technologies: "React • Node.js • Express.js • MongoDB Atlas • Stripe Gateway • Redux Toolkit • Real-time Inventory • JWT Security",
             image: "/images/Prodesk.png",
-            description: "A complete e-commerce platform with secure checkout and smooth product browsing.",
+            description: "An enterprise full-stack e-commerce marketplace featuring real-time inventory synchronization, dynamic product recommendations, end-to-end Stripe payment processing, real-time order tracking dashboard, and secure JWT authentication.",
             link: "https://github.com/red1-for-hek/prodesk"
         },
         {
             id: 8,
             title: "HekTools",
-            category: "Security / Android",
-            technologies: "Kotlin, Android SDK, Firebase, Python, Encryption",
+            category: "Cybersecurity / Android Telemetry",
+            technologies: "Kotlin Native • Android SDK • Firebase Realtime DB • Python Telemetry Core • AES-256 Encryption • Remote Process Inspector",
             image: "/images/hektools.png",
-            description: "An advanced Android monitoring and security research tool. Features remote device management, activity logging, and encrypted data transmission for security testing purposes.",
+            description: "An advanced Android security auditing and telemetric intelligence framework. Features real-time remote device diagnostic telemetry, military-grade end-to-end encrypted payload routing, live background process monitoring, and stealth activity tracking for security researchers.",
             link: ""
         }
     ],
     contact: {
-        email: "redoyanul1234@gmail.com",
-        github: "https://github.com/red1-for-hek",
-        linkedin: "https://linkedin.com/in/red1-for-hek",
-        twitter: "https://x.com/red_1_ul",
-        facebook: "https://www.facebook.com/redoyanulhaque.hacker.official",
-        instagram: "https://www.instagram.com/red_1_ul"
+        email: "mishramanavv@gmail.com",
+        github: "https://github.com/Manav12mm",
+        linkedin: "https://www.linkedin.com/in/manav-mishra-99b423327/",
+        twitter: "https://x.com/ManavMishr27289",
+        instagram: "https://www.instagram.com/donescenehaii_/"
     },
     skills: {
         develop: {
