@@ -35,8 +35,8 @@ If you’re a developer looking for a **portfolio template** that feels premium,
 ### 1) Clone
 
 ```bash
-git clone https://github.com/red1-for-hek/portfolio-website.git
-cd portfolio-website
+git clone https://github.com/Manav12mm/Portfolio.git
+cd Portfolio
 ```
 
 ### 2) Install
