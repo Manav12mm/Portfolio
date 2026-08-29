@@ -8,13 +8,23 @@ const About = () => {
 
   return (
     <div className="about-section" id="about">
-      <div className="about-me">
-        <h3 className="title">{config.about.title}</h3>
-        {paragraphs.map((para, index) => (
-          <p key={index} className="para">
-            {para}
-          </p>
-        ))}
+      <div className="about-container">
+        <div className="about-photo-card">
+          <img
+            src="/images/mypic.jpeg"
+            alt={config.developer.fullName}
+            className="about-profile-img"
+            loading="lazy"
+          />
+        </div>
+        <div className="about-me">
+          <h3 className="title">{config.about.title}</h3>
+          {paragraphs.map((para, index) => (
+            <p key={index} className="para">
+              {para}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );

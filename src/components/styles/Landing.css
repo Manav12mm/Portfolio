@@ -4,7 +4,7 @@
 }
 
 /* Remove mobile photo and ensure 3D character is always hidden on mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .character-model {
     display: none !important;
   }
@@ -30,30 +30,24 @@
     bottom: auto !important;
     transform: none !important;
     padding-top: 40px;
-    /* Shift higher up */
     margin-bottom: 20px;
     z-index: 10;
     text-align: center;
     width: 100% !important;
     order: 1;
-    /* First: Name */
     height: auto !important;
   }
 
   .landing-intro h1 {
     word-spacing: 0.1em;
     font-size: 32px !important;
-    /* Ensure nice size */
     line-height: 1.2 !important;
     margin: 0;
   }
 
-  /* Ensure name parts display correctly */
   .landing-intro h1 br {
     display: block;
-    /* Keep break on mobile for 2 lines, or use display:none for 1 line */
     content: " ";
-    /* Fallback */
     margin-bottom: 5px;
   }
 
@@ -67,29 +61,23 @@
     transform: none !important;
     text-align: center;
     margin-top: 20px;
-    /* Space between name and subtitles */
     z-index: 10;
     background: transparent;
     padding-bottom: 50px;
-    /* Add bottom padding for scroll space */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     height: auto !important;
-    /* Force auto height */
     width: 100% !important;
     order: 3;
-    /* Third: Subtitles */
   }
 
   .landing-info h3 {
     text-align: center;
     display: none;
-    /* Hide 'An' if not needed, or keep it static */
   }
 
-  /* Force static positioning to prevent overlaps */
   .landing-info h2,
   h2.landing-info-h2,
   .landing-h2-1,
@@ -104,10 +92,8 @@
     text-align: center;
     height: auto !important;
     transform: none !important;
-    /* Remove any transforms */
   }
 
-  /* Specific styling for the distinct parts */
   .landing-h2-1 {
     font-size: 24px !important;
     color: var(--accentColor);
@@ -123,28 +109,29 @@
     display: none;
   }
 
-  /* Show mobile photo */
+  /* Show mobile & tablet photo */
   .mobile-photo {
     display: block;
     position: relative !important;
     width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
+    max-width: 320px;
+    margin: 15px auto 25px auto;
     z-index: 1;
     order: 2;
-    /* Second: Photo */
-    /* Add fade mask to bottom */
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    pointer-events: none;
     transform: none !important;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 2px solid rgba(194, 164, 255, 0.3);
+    box-shadow: 0 15px 40px rgba(194, 164, 255, 0.25), 0 0 20px rgba(0, 0, 0, 0.8);
   }
 
   .mobile-photo img {
     width: 100%;
     height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(194, 164, 255, 0.4));
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+    border-radius: 22px;
   }
 }
 
