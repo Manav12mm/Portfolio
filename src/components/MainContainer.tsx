@@ -66,17 +66,15 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Navbar />
       <SocialIcons />
       {isDesktopView && !isMobile && shouldRenderCharacter && children}
-      <div className="container-main">
-        <Landing />
-        <About />
-        <WhatIDo />
-        <Career />
-        <Work />
-        <TechStackNew />
-        <CallToAction />
-        <QuotesTicker />
-        <Contact />
-      </div>
+      <Landing />
+      <About />
+      <WhatIDo />
+      <Career />
+      <Work />
+      <TechStackNew />
+      <CallToAction />
+      <QuotesTicker />
+      <Contact />
     </div>
   );
 };

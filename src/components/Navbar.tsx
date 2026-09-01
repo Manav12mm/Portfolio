@@ -22,6 +22,9 @@ const Navbar = () => {
       infinite: false,
     });
 
+    // Connect Lenis scroll to ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
     // Start paused
     lenis.stop();
 
