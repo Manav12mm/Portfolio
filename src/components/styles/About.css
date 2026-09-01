@@ -124,9 +124,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 48%;
-    max-width: 700px;
-    margin-right: 4%;
+    width: 40%;
+    max-width: 620px;
+    margin-right: 5%;
     margin-left: auto;
   }
   .about-me {
@@ -141,8 +141,8 @@
     font-weight: 400;
   }
   .about-me p {
-    font-size: 1.3vw;
-    line-height: 2vw;
+    font-size: 1.15rem;
+    line-height: 1.85rem;
     margin-bottom: 20px;
     color: #eae5ec;
     font-weight: 500;
@@ -150,16 +150,16 @@
 }
 @media only screen and (min-width: 1950px) {
   .about-container {
-    width: 44%;
-    max-width: 800px;
-    margin-right: 5%;
+    width: 38%;
+    max-width: 750px;
+    margin-right: 6%;
   }
   .about-me h3 {
     font-size: 40px;
   }
   .about-me p {
-    font-size: 1.45rem;
-    line-height: 2.2rem;
+    font-size: 1.35rem;
+    line-height: 2.1rem;
     margin-bottom: 24px;
   }
 }
